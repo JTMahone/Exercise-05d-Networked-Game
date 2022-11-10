@@ -40,4 +40,9 @@ func get_input():
 	if Input.is_action_pressed("right"):
 		input_dir += camera.global_transform.basis.x
 	input_dir = input_dir.normalized()
+	
 	return input_dir
+
+	rpc_unreliable("_set_position", global_transform.origin)
+	rpc_unreliable("_set_rotation", rotation.y)
+	rpc_unreliable("_die")
